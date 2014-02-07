@@ -14,28 +14,22 @@ class Rss_Content {
 
     }
 
-    public function before_load_content(&$file) {
-
-        if (file_exists($file))
-            $this->content = file_get_contents($file);
-    }
-
     public function config_loaded(&$settings) {
 
         $this->config = $settings;
-        if (isset($settings['rss_feed']))
+        if (isset($settings['rss_feed'])) {
             $this->feed = $settings['rss_feed'];
+        }
     }
 
     public function before_render(&$twig_vars, &$twig) {
 
         $twig_vars['rss_content'] = $this->rss_content();
-        //var_dump($this->rss_content());
     }
 
     /**
-     * Grab the file meta here
-     * @return string
+     * Get the rss data and set the array
+     * @return array
      */
     private function rss_content() {
 
@@ -43,11 +37,12 @@ class Rss_Content {
         $config = $this->config;
 
 
-        if (isset($config['rss_feed']))
-            $feedPath = $config['rss_feed'];
+        if (isset($config['rss_feed'])) {
+            $url = $config['rss_feed'];
+        }
 
         $rss = new DOMDocument();
-        $rss->load($feedPath);
+        $rss->load($url);
         $feed = array();
 
         foreach ($rss->getElementsByTagName('item') as $node) {

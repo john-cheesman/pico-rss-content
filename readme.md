@@ -2,7 +2,7 @@
 
 A simple RSS plugin for [Pico](http://pico.dev7studios.com), import content into any template.
 
-Add rss-content to your plugins plugins directory, set your feed and access the array in a template.
+Add rss-content to your plugins directory, set your feed and access the array in a template.
 
 ## Set your RSS feed in config.php
     $config['rss_content'] = 'http://myfeed.com';

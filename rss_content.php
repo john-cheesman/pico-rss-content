@@ -48,6 +48,9 @@ class Rss_Content {
             $url = $config['rss_feed'];
         }
 
+        // set date format to default
+        $date_format = $config['date_format'];
+
         // build the array
         $rss = new DOMDocument();
         $rss->load($url);
@@ -58,7 +61,7 @@ class Rss_Content {
                 'title' => $node->getElementsByTagName('title')->item(0)->nodeValue,
                 'desc' => $node->getElementsByTagName('description')->item(0)->nodeValue,
                 'link' => $node->getElementsByTagName('link')->item(0)->nodeValue,
-                'date' => $node->getElementsByTagName('pubDate')->item(0)->nodeValue,
+                'date' => date($date_format, strtotime($node->getElementsByTagName('pubDate')->item(0)->nodeValue)),
             );
 
             array_push($feed, $item);

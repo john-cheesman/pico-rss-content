@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The file description. *
+ * RSS Content *
  * @package Pico
  * @subpackage RSS Content
  * @version 0.1.0
@@ -14,17 +14,24 @@ class Rss_Content {
 
     }
 
+    /**
+     * Get the settings from config.php
+     * @return array
+     */
     public function config_loaded(&$settings) {
 
         $this->config = $settings;
-        if (isset($settings['rss_feed'])) {
-            $this->feed = $settings['rss_feed'];
-        }
+
     }
 
+    /**
+     * Set the twig variable
+     * @return array
+     */
     public function before_render(&$twig_vars, &$twig) {
 
         $twig_vars['rss_content'] = $this->rss_content();
+
     }
 
     /**
@@ -33,14 +40,15 @@ class Rss_Content {
      */
     private function rss_content() {
 
-        //include the config
+        // include the config
         $config = $this->config;
 
-
+        // get the feed url
         if (isset($config['rss_feed'])) {
             $url = $config['rss_feed'];
         }
 
+        // build the array
         $rss = new DOMDocument();
         $rss->load($url);
         $feed = array();
@@ -57,6 +65,7 @@ class Rss_Content {
         }
 
         return $feed;
+
     }
 
 }

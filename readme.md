@@ -1,5 +1,5 @@
 # Pico RSS Content
-v0.2.0
+v1.0.0
 
 A simple RSS plugin for [Pico](http://pico.dev7studios.com), import content into any template.
 
@@ -16,3 +16,6 @@ Add rss-content to your plugins directory, set your feed and access the array in
 - link
 - date (formatted by `$config['date_format']`)
 - desc (description)
+
+## Changelog
+- v1.0.0 - initial release

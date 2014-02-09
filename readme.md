@@ -1,4 +1,4 @@
-# RSS Content
+# Pico RSS Content
 v0.2.0
 
 A simple RSS plugin for [Pico](http://pico.dev7studios.com), import content into any template.

@@ -18,4 +18,5 @@ Add rss-content to your plugins directory, set your feed and access the array in
 - desc (description)
 
 ## Changelog
+- v1.0.1 - added MIT license
 - v1.0.0 - initial release

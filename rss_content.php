@@ -13,20 +13,14 @@ class Rss_Content {
 
     }
 
-    /**
-     * Get the settings from config.php
-     * @return array
-     */
+    // Get the settings from config.php
     public function config_loaded(&$settings) {
 
         $this->config = $settings;
 
     }
 
-    /**
-     * Set the twig variable
-     * @return array
-     */
+    //Set the twig variable
     public function before_render(&$twig_vars, &$twig) {
 
         $twig_vars['rss_content'] = $this->rss_content();

@@ -5,17 +5,21 @@ A simple RSS plugin for [Pico](http://pico.dev7studios.com), import content into
 
 Add rss-content to your plugins directory, set your feed and access the array in a template.
 
-## Set your RSS feed in config.php
+## Installation
+1. Download the files and move to `plugins/rss-content`
+2. Add the fee URL to `config.php`
     $config['rss_feed'] = 'http://myfeed.com';
-## Setup a loop in your template
+3. Setup a loop in your template
     {% for item in rss_content %}
         <h2><a href="{{ item.link }}">{{ item.title }}</a></h2>
+        <time>{{ item.date }}</time>
+        <p>{{ item.description }}</p>
     {% endfor %}
 ## Properties
 - title
 - link
 - date (formatted by `$config['date_format']`)
-- desc (description)
+- description
 
 ## Changelog
 - v1.0.1 - added MIT license

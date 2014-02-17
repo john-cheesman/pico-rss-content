@@ -4,7 +4,7 @@
  * RSS Content *
  * @package Pico
  * @subpackage RSS Content
- * @version 1.0.2
+ * @version 1.0.3
  * @author John Cheesman <info@johncheesman.org.uk>
  */
 class Rss_Content {

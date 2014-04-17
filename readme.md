@@ -12,14 +12,17 @@ Add rss-content to your plugins directory, set your feed and access the array in
 
 ## Examples
 ### Feed URL
+```php
     $config['rss_feed'] = 'http://myfeed.com';
+```
 ### Template loop
+```html
     {% for item in rss_content %}
         <h2><a href="{{ item.link }}">{{ item.title }}</a></h2>
         <time>{{ item.date }}</time>
         <p>{{ item.description }}</p>
     {% endfor %}
-
+```
 ## Properties
 - title
 - link
